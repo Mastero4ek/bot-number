@@ -1,7 +1,7 @@
 'use strict'
 
-function botNumber(x) {
-	function number() {
+function botNumber(n) {
+	function number(x) {
 		const guessNumber = prompt("Угадай число от 1 до 100");
 
 		if(isNaN(guessNumber) || guessNumber == '') {
@@ -11,19 +11,40 @@ function botNumber(x) {
 			return alert("Игра окончена");
 		} else
 		if(guessNumber > x) {
-			alert("Загаданное число меньше");
+			n--;
+
+			if(n == 0) {
+				let stopGame = confirm("Попытки закончились, хотите сыграть еще?");
+
+				if(!stopGame) return;
+				n = 10;
+			} else {
+				alert(`Загаданное число меньше, осталось ${n} попыток`);
+			}
 		} else
 		if(guessNumber < x) {
-			alert("Загаданное число больше");
+			n--;
+
+			if(n == 0) {
+				let stopGame = confirm("Попытки закончились, хотите сыграть еще?");
+				
+				if(!stopGame) return;
+				n = 10;
+			} else {
+				alert(`Загаданное число больше, осталось ${n} попыток`);
+			}
 		} else
 		if(guessNumber == x) {
-			return alert("Поздравляю, Вы угадали!!!");
+			let newGame = confirm("Поздравляю, Вы угадали!!! Хотели бы сыграть еще?");
+
+			if(!newGame) return;
+			n = 10;
 		}
 
-		number();
+		number(33);
 	}
 
-	number();
+	number(33);
 }
 
 botNumber(10);
