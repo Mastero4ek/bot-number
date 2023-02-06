@@ -4,8 +4,8 @@ function botNumber(n) {
 	function number(x) {
 		const guessNumber = prompt("Угадай число от 1 до 100");
 
-		if(isNaN(guessNumber) || guessNumber == '') {
-			alert("Введи число!");
+		if(isNaN(guessNumber) || guessNumber == '' || guessNumber > 100) {
+			alert("Введи число от 1 до 100!");
 		} else
 		if(guessNumber === null) {
 			return alert("Игра окончена");
@@ -27,7 +27,7 @@ function botNumber(n) {
 
 			if(n == 0) {
 				let stopGame = confirm("Попытки закончились, хотите сыграть еще?");
-				
+
 				if(!stopGame) return;
 				n = 10;
 			} else {
@@ -43,7 +43,7 @@ function botNumber(n) {
 
 		number(33);
 	}
-
+	
 	number(33);
 }
 
